@@ -17,28 +17,28 @@ module.exports.run = async (bot, message, args) => {
     db.add(`money_${message.guild.id}_${user.id}`, money)
     let embed5 = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
-  .setDescription(`<:Checkmark:723584979090669679> You have withdrawn all your coins from your bank`);
+  .setDescription(`:no_entry_sign: You have withdrawn all your coins from your bank`);
   message.channel.send(embed5)
   
   } else {
 
   let embed2 = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
-  .setDescription(`<:crossx:723585712724639856> Specify an amount to withdraw`);
+  .setDescription(`:no_entry_sign: Specify an amount to withdraw`);
   
   if (!args[0]) {
       return message.channel.send(embed2)
   }
   let embed3 = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
-  .setDescription(`<:crossx:723585712724639856> You can't withdraw negative money`);
+  .setDescription(`:no_entry_sign: You can't withdraw negative money`);
 
   if (message.content.includes('-')) { 
       return message.channel.send(embed3)
   }
   let embed4 = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
-  .setDescription(`<:crossx:723585712724639856> You don't have that much money in the bank`);
+  .setDescription(`:no_entry_sign: You don't have that much money in the bank`);
 
   if (member2 < args[0]) {
       return message.channel.send(embed4)
@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
 
   let embed5 = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
-  .setDescription(`<:Checkmark:723584979090669679> You have withdrawn ${args[0]} coins from your bank`);
+  .setDescription(`:white_check_mark: You have withdrawn ${args[0]} coins from your bank`);
 
   message.channel.send(embed5)
   db.subtract(`bank_${message.guild.id}_${user.id}`, args[0])

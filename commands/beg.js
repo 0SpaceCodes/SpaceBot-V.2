@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
   } else {
     let moneyEmbed = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
-  .setDescription(`:white_check_mark: You've begged and received ${amount} coins`);
+  .setDescription(`:white_check_mark: You've begged and received ${amount} Space Credits`);
   message.channel.send(moneyEmbed)
   db.add(`money_${message.guild.id}_${user.id}`, amount)
   db.set(`beg_${message.guild.id}_${user.id}`, Date.now())

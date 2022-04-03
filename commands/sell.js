@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
     
     let user = message.author;
 
+//start
     if(args[0] == 'nikes') {
         let Embed2 = new Discord.MessageEmbed()
         .setColor("#FFFFFF")
@@ -24,6 +25,9 @@ module.exports.run = async (bot, message, args) => {
 
         db.add(`money_${message.guild.id}_${user.id}`, 600)
         message.channel.send(Embed3)
+//end
+
+//start 
     } else if(args[0] == 'car') {
         let Embed2 = new Discord.MessageEmbed()
         .setColor("#FFFFFF")
@@ -42,6 +46,9 @@ module.exports.run = async (bot, message, args) => {
 
         db.add(`money_${message.guild.id}_${user.id}`, 800)
         message.channel.send(Embed3)
+//end
+
+//start
     } else if(args[0] == 'mansion') {
         let Embed2 = new Discord.MessageEmbed()
         .setColor("#FFFFFF")

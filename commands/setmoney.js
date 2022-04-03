@@ -9,18 +9,18 @@ module.exports.run = async (bot, message, args) => {
   let user = message.mentions.members.first() || message.author;
 
     if (isNaN(args[1])) return;
-    db.subtract(`money_${message.guild.id}_${user.id}`, args[1])
+    db.set(`money_${message.guild.id}_${user.id}`, args[1])
     let bal = await db.fetch(`money_${message.guild.id}_${user.id}`)
 
     let moneyEmbed = new Discord.MessageEmbed()
     .setColor("#FFFFFF")
-    .setDescription(`✅ Removed ${args[1]} Space Credits\n\nNew Balance: ${bal}`);
+    .setDescription(`✅ Set Space Credits to ${args[1]} \n\nNew Balance: ${bal}`);
     message.channel.send(moneyEmbed)
 
 };
 
 
 module.exports.help = {
-  name:"remove",
-  aliases: ["rm"]
+  name:"set",
+  aliases: ["st"]
 }

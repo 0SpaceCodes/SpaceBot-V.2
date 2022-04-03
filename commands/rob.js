@@ -17,13 +17,13 @@ if (author !== null && timeout - (Date.now() - author) > 0) {
 
     let timeEmbed = new Discord.MessageEmbed()
     .setColor("#FFFFFF")
-    .setDescription(`<:crossx:723585712724639856> You have already robbed someone\n\nTry again in ${time.minutes}m ${time.seconds}s `);
+    .setDescription(`❌ You have already robbed someone\n\nTry again in ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
 
 let moneyEmbed = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
-  .setDescription(`<:crossx:723585712724639856> You need atleast 200 coins in your wallet to rob someone`);
+  .setDescription(`❌ You need atleast 200 Space Credits in your wallet to rob someone`);
 
 if (author2 < 200) {
     return message.channel.send(moneyEmbed)
@@ -31,7 +31,7 @@ if (author2 < 200) {
 }
 let moneyEmbed2 = new Discord.MessageEmbed()
   .setColor("#FFFFFF")
-  .setDescription(`<:crossx:723585712724639856> ${user.user.username} does not have anything you can rob`);
+  .setDescription(`❌ ${user.user.username} does not have anything you can rob`);
 if (targetuser < 0) {
     return message.channel.send(moneyEmbed2)
 }
@@ -43,13 +43,18 @@ if(vip === true) random = Math.floor(Math.random() * 200) + 1;
 if (vip === null) random = Math.floor(Math.random() * 100) + 1;
 
 let embed = new Discord.MessageEmbed()
-.setDescription(`<:Checkmark:723584979090669679> You robbed ${user} and got away with ${random} coins`)
+.setDescription(`✅ You robbed ${user} and got away with ${random} Space Credits`)
 .setColor("#FFFFFF")
-message.channel.send(embed)
 
 db.subtract(`money_${message.guild.id}_${user.id}`, random)
 db.add(`money_${message.guild.id}_${user.id}`, random)
 db.set(`rob_${message.guild.id}_${user.id}`, Date.now())
+  
+if (author2 > 200) {
+  return message.channel.send(embed)
+
+}
+  
   
 };
 }

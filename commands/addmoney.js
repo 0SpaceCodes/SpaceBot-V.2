@@ -12,8 +12,8 @@ exports.run = async (bot, message, args) => {
     let bal = await db.fetch(`money_${message.guild.id}_${user.id}`)
 
     let moneyEmbed = new Discord.MessageEmbed()
-    .setColor("#FFFFFF")
-    .setDescription(`:white_check_mark: Added ${args[1]} Coins!\n\nNew Balance: ${bal}`);
+    .setColor("#00FF00")
+    .setDescription(`✅ Added ${args[1]} Space Credits!\n\nNew Balance: ${bal}`);
     message.channel.send(moneyEmbed)
 
 };
